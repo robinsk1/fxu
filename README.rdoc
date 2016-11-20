@@ -1,5 +1,7 @@
-== FXULIKE README
+= http://fxu.herokuapp.com/
+
+To run locally 
 1. bundle exec rake db:setup
-2. bundle exec rake :update_exchange_rates
+2. bundle exec rake update_exchange_rates
 3. start your rails server - rails s
 4. localhost:3000
