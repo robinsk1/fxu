@@ -1,73 +1,63 @@
 <div class="row">
-  <div class="large-2 columns"></div>
-  <div class="large-8 columns">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
     <h1>FX-u-like</h1>
   </div>
-  <div class="large-2 columns"></div>
 </div>
 
 <div class="row">
-  <div class="large-2 columns"></div>
-  <div class="large-8 columns">
-    <div class='row'>
-      <%= form_tag("/foreign_exchange/convert", method: 'get', remote: true, 'data-type': :json, id: 'fx' ) do %>
-        <div class="row">
-          <div class='large-1 columns'>
-            <label for="dp1" class="right inline"><%= I18n.translate('form.date') %></label>
-          </div>
-          <div class='large-3 columns'>
-            <%= text_field_tag(:date, nil, class: 'span2', id: 'dp1' )  %>
-          </div>
-          <div class="large-8 columns"></div>
-        </div>
-
-        <div class="row">
-          <div class='large-1 columns'>
-            <label for="amount" class="right inline"><%= I18n.translate('form.amount') %></label>
-          </div>
-          <div class='large-2 columns'>
-            <%= text_field_tag(:amount, nil, id: 'amount') %>
-          </div>
-          <div class='large-1 columns'>
-            <label for="base" class="right inline"><%= I18n.translate('form.from') %></label>
-          </div>
-          <div class='large-2 columns'>
-            <%= select_tag 'base_code', options_for_select(@currency_codes), id: 'base' %>
-          </div>
-          <div class="large-6 columns"></div>
-        </div>
-
-        <div class="row">
-          <div class='large-3 columns'>&nbsp</div>
-          <div class='large-1 columns'>
-            <label for="counter" class="right inline"><%= I18n.translate('form.to') %></label>
-          </div>
-          <div class='large-2 columns'>
-            <%= select_tag 'counter_code', options_for_select(@currency_codes), id: 'to' %>
-          </div>
-          <div class="large-6 columns"></div>
-        </div>
-
-        <div class="row">
-        <div class="large-4 columns">&nbsp</div>
-          <div class='large-2 columns'>
-            <%= submit_tag('convert', class: "button") %>
-          </div>
-        <div class="large-6 columns"></div>
-        </div>
-      <% end %>
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <%= form_tag("/foreign_exchange/convert", method: 'get', remote: true, 'data-type': :json, id: 'fx', class: 'fx-form' ) do %>
 
       <div class="row">
-        <div class='large-3 columns'>&nbsp</div>
-        <div class='large-1 columns'>
-          <label for="result" class="right inline"><%= I18n.translate('form.result') %></label>
+        <div class="large-2 columns">
+          <label for="dp1" class="right inline"><%= I18n.translate('form.date') %></label>
         </div>
-        <div class='large-3 columns'>
-          <%= text_field_tag(:result, nil, id: 'result', disabled: true)%>
+        <div class="large-10 columns">
+          <%= text_field_tag(:date, nil, class: 'span2', id: 'dp1' )  %>
         </div>
-        <div class="large-5 columns"></div>
+      </div>
+
+      <div class="row">
+        <div class='large-2 columns'>
+          <label for="amount" class="right inline"><%= I18n.translate('form.amount') %></label>
+        </div>
+        <div class='large-4 columns'>
+          <%= text_field_tag(:amount, nil, id: 'amount') %>
+        </div>
+        <div class='large-2 columns'>
+          <label for="base" class="right inline"><%= I18n.translate('form.from') %></label>
+        </div>
+        <div class='large-4 columns'>
+          <%= select_tag 'base_code', options_for_select(@currency_codes), id: 'base' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class='large-6 columns'>&nbsp</div>
+        <div class='large-2 columns'>
+          <label for="counter" class="right inline"><%= I18n.translate('form.to') %></label>
+        </div>
+        <div class='large-4 columns'>
+          <%= select_tag 'counter_code', options_for_select(@currency_codes), id: 'to' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-8 columns">&nbsp</div>
+        <div class='large-4 columns'>
+          <%= submit_tag('convert', class: "button") %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class='large-4 columns'>&nbsp</div>
+      <div class='large-2 columns'>
+        <label for="result" class="right inline"><%= I18n.translate('form.result') %></label>
+      </div>
+      <div class='large-6 columns'>
+        <%= text_field_tag(:result, nil, id: 'result', disabled: true, class: 'result') %>
       </div>
     </div>
   </div>
-  <div class="large-2 columns"></div>
 </div>
