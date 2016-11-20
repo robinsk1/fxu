@@ -8,7 +8,7 @@ $(document).ready ->
     $('input:text#result').val(data)
     return
   $('form#fx').on 'ajax:error', (event, xhr, status, error) ->
-     $('input:text#result').val(error)
+    $('input:text#result').val("No data for date")
     return
   return
 
@@ -18,6 +18,7 @@ $ ->
   start = new Date(new Date(today).setDate(today.getDate() - 90))
 
   $('#dp1').fdatepicker
+    daysOfWeekDisabled: [0,6]
     startDate: start
     endDate: today
     format: 'dd-mm-yyyy'
